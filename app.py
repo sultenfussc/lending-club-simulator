@@ -259,7 +259,7 @@ def time_model():
     if prediction == 0:
         prediction = "Late"
     else:
-        prediction = "Fully Paidgit ad"
+        prediction = "Fully Paid"
     
     return render_template("index.html", prediction = prediction)
    
