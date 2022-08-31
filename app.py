@@ -183,16 +183,16 @@ def acceptance_model():
 
     print(loaded_model.predict(X_scaled))
         
-    prediction = loaded_model.predict(X_scaled)
+    prediction1 = loaded_model.predict(X_scaled)
     
-    prediction = prediction[0]
+    prediction1 = prediction1[0]
     
-    if prediction == 0:
-        prediction = "Declined"
+    if prediction1 == 0:
+        prediction1 = "Declined"
     else:
-        prediction = "Accepted"
+        prediction1 = "Accepted"
 
-    return render_template("index.html", prediction = prediction)
+    return render_template("index.html", prediction1 = prediction1)
 
 
 ##################################################
@@ -259,7 +259,7 @@ def time_model():
     if prediction == 0:
         prediction = "Late"
     else:
-        prediction = "Fully Paid"
+        prediction = "Fully Paidgit ad"
     
     return render_template("index.html", prediction = prediction)
    
