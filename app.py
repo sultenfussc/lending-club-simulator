@@ -223,14 +223,14 @@ def time_model():
         fico_range_high = 701.15
     fico_range_high = float(fico_range_high) 
 
-    loan_status = request.form["loan_status"] #dropdown --> Fully Paid vs Late
+    # loan_status = request.form["loan_status"] #dropdown --> Fully Paid vs Late
 
     total_pymnt = request.form["total_pymnt"] #text
     if total_pymnt == "":
         total_pymnt = 12517.59
     total_pymnt = float(total_pymnt)
 
-    X = [[recoveries, total_rec_late_fee, total_rec_prncp, delinq_2yrs, fico_range_high, loan_status, total_pymnt]]
+    X = [[recoveries, total_rec_late_fee, total_rec_prncp, delinq_2yrs, fico_range_high, total_pymnt]]
 
     print(X)
 
