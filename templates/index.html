@@ -112,7 +112,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6 text-center">
-                        <img id="timepic" src= "{{url_for ('static',filename='assets/img/timeticking.jpg')}}">
+                        <img id="acceptreject_pic" src="{{url_for ('static',filename='assets/img/accept-reject.jpg')}}">
                     </div>
                     <div class="col-lg-6 text-center">
                         <h2 class="command_user">Fill out the form below and click the button to find out!</h2>
@@ -285,7 +285,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6 text-center">
-                        <img id="acceptedvsrejected" src="{{url_for ('static',filename='assets/img/acc_vs_rej.jpeg')}}">
+                        <img id="timepic" src="{{url_for ('static',filename='assets/img/timeticking.jpg')}}">
                     </div>
                     <div class="col-lg-6 text-center">
                         <h2 class="command_user">Fill out the form below and click submit to find out!</h2>
@@ -296,7 +296,7 @@
                                 <label class="modelparam_headers" for="inputName">Recoveries:</label>
                                 <input type="text" class="form" id="inputIncome" name="recoveries" placeholder="Recoveries">
                                 <span class="form-group-text">
-                                    <span class="tt" data-bs-placement="right" title="Post charge off gross recovery"> <i class="bi bi-question-circle"></i>
+                                    <span class="tt" data-bs-placement="right" title="Post charge off gross recovery ($ amount)"> <i class="bi bi-question-circle"></i>
                                     </span>
                                 </span>
                             </div>
@@ -324,8 +324,6 @@
                             </div>
 
                             <br>
-
-                            <h4 style="font-style: italic">Need to look at Notebook RG used to create model to double check which features need to be displayed here</h4>   
                             
                             <div>
                                 <label class="modelparam_headers" for="inputName">Total Late Payments Last 2 Years:</label>
@@ -337,7 +335,7 @@
                             </div>
 
                             <br>
-                            <div>
+                            <!-- <div>
                                 <label class="modelparam_headers" for="delinq_2yrs">Total Late Payments Last 2 Years:</label>
                                 <select name="delinq_2yrs" id="delinq_2yrs" placeholder="Years">
                                 <option value="Total Late Payments">- Total Late Payments -</option>
@@ -366,7 +364,7 @@
                                     </span>
                                 </span>
                             </div>
-                            <br><br>
+                            <br><br> -->
 
                             <div>
                                 <label class="modelparam_headers" for="inputName">FICO Score:</label>
@@ -409,7 +407,11 @@
                             <br><br>
                         </form>
                         <br><br>
-                        <h4>*Print Result Here*</h4>
+                        <h4> {% if prediction %} 
+                            <div class="prediction">
+                                How timely are you on your payments?: {{prediction}}
+                            </div>
+                          {% endif %}</h4>
                     </div>
                 </div>
             </div>

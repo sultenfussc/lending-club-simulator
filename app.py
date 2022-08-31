@@ -1,6 +1,8 @@
 import pickle
 # import numpy as np
 import os
+from sklearn.neighbors import KNeighborsClassifier 
+
 
 from flask import (
     Flask,
@@ -211,20 +213,24 @@ def time_model():
         total_rec_late_fee = 1.48
     total_rec_late_fee = float(total_rec_late_fee)
     
+    #Total principle amount received to date
     total_rec_prncp = request.form["total_rec_prncp"] #text
     if total_rec_prncp == "":
         total_rec_prncp = 9853.52
     total_rec_prncp = float(total_rec_prncp)
 
+    #Total number of late payments in the past 2 years
     delinq_2yrs = request.form["delinq_2yrs"] # text or dropdown 0-16, 18, 19
 
+    #Credit Score at time of loan application
     fico_range_high = request.form["fico_range_high"] #text
     if fico_range_high == "":
         fico_range_high = 701.15
-    fico_range_high = float(fico_range_high) 
+    fico_range_high = fico_range_high 
 
     # loan_status = request.form["loan_status"] #dropdown --> Fully Paid vs Late
-
+    
+    #payments received to date for total amount funded
     total_pymnt = request.form["total_pymnt"] #text
     if total_pymnt == "":
         total_pymnt = 12517.59

@@ -64,6 +64,10 @@
   --bs-body-bg: #fff;
 }
 
+#acceptreject_pic {
+  size: 20px;
+}
+
 .name {
   font-weight: bolder;
   font-size: 15px;
