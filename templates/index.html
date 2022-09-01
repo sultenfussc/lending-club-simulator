@@ -35,9 +35,8 @@
                                 Predict!
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#payment_time">Payments on Time?</a></li>
+                                <li><a class="dropdown-item" href="#payment_time">Fully paid or charged off?</a></li>
                                 <li><a class="dropdown-item" href="#application">Application approved or rejected?</a></li>
-                                <li><a class="dropdown-item" href="#">Third model or nah?</a></li>
                             </ul>
                             </li>
                         <li class="nav-item"><a class="nav-link" href="#meet_the_team">The Team</a></li>
@@ -106,8 +105,8 @@
         </section>
 
         <!-- END-USER MODEL 1-->
-        <section class="page-section" id="payment_time" style="background-color: rgb(189, 239, 239) ;">
-            <h3 class="model_headers">Will your loan be accepted?</h3>
+        <div class="page-section" id="payment_time" style="background-color: rgb(189, 239, 239) ;">
+            <h3 class="model_headers">Will your loan application be accepted or rejected?</h3>
             <hr class="divider divider-light"/>
             <div class="container">
                 <div class="row justify-content-center">
@@ -117,7 +116,7 @@
                     <div class="col-lg-6 text-center">
                         <h2 class="command_user">Fill out the form below and click the button to find out!</h2>
                        <br><br>
-                        <form method="POST" class="model1" action="/acceptance_model" role="form", name="loan_acceptance">
+                        <form method="POST" class="modelformat" action="/acceptance_model" role="form", name="loan_acceptance">
                             <div>
                                 <label class="modelparam_headers" for="inputName">Amount Requested:</label>
                                 <input type="text" class="form" id="inputIncome" name="amount_requested" placeholder="Amount Requested">
@@ -266,7 +265,7 @@
                         <br><br>
                         <h4> {% if prediction1 %} 
                             <div class="prediction">
-                              Your predicted price is: {{prediction1}}
+                              Your loan application has been: {{prediction1}}
                             </div>
                           {% endif %}</h4>
                     </div>
@@ -274,12 +273,11 @@
             </div>
             <br>
             <hr>
-        </section>
+        </div>
 
-        
         <!-- END-USER MODEL 2-->
-        <section class="page-section" id="application" style="background-color: rgb(189, 239, 239) ;">
-            <h3 class="model_headers">How likely are you to pay your loan on time?</h3>
+        <div class="page-section" id="application" style="background-color: rgb(189, 239, 239) ;">
+            <h3 class="model_headers">Will you have your loan charged off or fully paid off?</h3>
             <hr class="divider divider-light"/>
             <br>
             <div class="container">
@@ -290,7 +288,7 @@
                     <div class="col-lg-6 text-center">
                         <h2 class="command_user">Fill out the form below and click submit to find out!</h2>
                         <br>
-                        <form method="POST" class="model1" action="/time_model" role="form", name="paymenttime">
+                        <form method="POST" class="modelformat" action="/time_model" role="form", name="paymenttime">
                         
                             <div>
                                 <label class="modelparam_headers" for="inputName">Recoveries:</label>
@@ -409,7 +407,7 @@
                         <br><br>
                         <h4> {% if prediction %} 
                             <div class="prediction">
-                                How timely are you on your payments?: {{prediction}}
+                                Predicted status of your loan: {{prediction}}
                             </div>
                           {% endif %}</h4>
                     </div>
@@ -417,7 +415,7 @@
             </div>
             <br><br><br><br>
             <hr>
-        </section>
+        </div>
         
         
         <!-- Tableau Stuff-->
@@ -469,7 +467,7 @@
        
 
         <!-- Meet the Team-->
-        <section class="content-section text-black" id="meet_the_team" style="z-index: 30; text-align: center; background-color:  rgb(206, 201, 201)" ;>
+        <section class="content-section text-black" id="meet_the_team" style="z-index: 30; text-align: center; background-color:  #118C4F" ;>
             <br>
             <br>
             <h2 class="team_header">Meet the Team!</h2>
