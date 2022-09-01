@@ -257,7 +257,7 @@ def time_model():
     prediction = prediction[0]
     
     if prediction == 0:
-        prediction = "Late"
+        prediction = "Charged Off"
     else:
         prediction = "Fully Paid"
     

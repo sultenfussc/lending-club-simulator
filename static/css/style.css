@@ -65,7 +65,8 @@
 }
 
 #acceptreject_pic {
-  size: 20px;
+  width: 20px;
+
 }
 
 .name {
@@ -98,13 +99,12 @@
 
 .model_headers {
   padding: 40px;
-  background-color: #479454;
+  background-color: #118C4F;
   text-align: center;
   margin-left: 25%;
   margin-right: 25%;
   border-radius: 100%;
   font-weight: bolder;
-  
 }
 
 
@@ -113,10 +113,10 @@
   color:black;
   margin-right: 300px;
 }
-.model1 {
+.modelformat {
   padding: 10px;
   padding-top: 30px;
-  background-color: rgb(211, 204, 204);
+  background-color:#118C4F;
 }
 
 .modelparam_headers {
@@ -330,7 +330,7 @@ a {
   text-decoration: underline;
 }
 a:hover {
-  color: #c34e2e;
+  color: #118C4F;
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -3863,16 +3863,17 @@ textarea.form-control-lg {
 
 .dropdown-item {
   display: block;
-  width: 100%;
+  width: 80%;
   padding: 0.25rem 1rem;
   clear: both;
-  font-weight: 400;
+  font-weight: bold;
   color: #212529;
   text-align: inherit;
   text-decoration: none;
   white-space: nowrap;
   background-color: transparent;
   border: 0;
+  font-size: 15px;
 }
 .dropdown-item:hover, .dropdown-item:focus {
   color: #1e2125;
@@ -4659,6 +4660,10 @@ textarea.form-control-lg {
 
 .card-text:last-child {
   margin-bottom: 0;
+}
+
+.card-text {
+  font-weight: bolder;
 }
 
 .card-link + .card-link {
@@ -11456,7 +11461,7 @@ hr.divider-light {
   color: cyan;
 }
 #mainNav .navbar-nav .nav-item .nav-link.active {
-  color: cyan !important;
+  color: green !important;
 }
 @media (min-width: 992px) {
   #mainNav {
