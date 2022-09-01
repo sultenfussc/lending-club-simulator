@@ -64,8 +64,8 @@
   --bs-body-bg: #fff;
 }
 
-#acceptreject_pic {
-  width: 20px;
+#accept_reject{
+  max-width: 20px;
 
 }
 
@@ -4643,6 +4643,8 @@ textarea.form-control-lg {
 .card > .list-group + .card-footer {
   border-top: 0;
 }
+
+
 
 .card-body {
   flex: 1 1 auto;

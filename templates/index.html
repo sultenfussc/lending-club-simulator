@@ -111,7 +111,8 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6 text-center">
-                        <img id="acceptreject_pic" src="{{url_for ('static',filename='assets/img/accept-reject.jpg')}}">
+                        <!-- <img id="acceptreject_pic"src="{{url_for ('static',filename='assets/img/accept-reject.jpg')}}" -->
+                        <img id="accept_reject" src="static/assets/img/accept-reject.jpg">
                     </div>
                     <div class="col-lg-6 text-center">
                         <h2 class="command_user">Fill out the form below and click the button to find out!</h2>
@@ -119,7 +120,7 @@
                         <form method="POST" class="modelformat" action="/acceptance_model" role="form", name="loan_acceptance">
                             <div>
                                 <label class="modelparam_headers" for="inputName">Amount Requested:</label>
-                                <input type="text" class="form" id="inputIncome" name="amount_requested" placeholder="Amount Requested">
+                                <input type="number" min="1000"  style="width: 180px" class="form" id="inputIncome" name="amount_requested" placeholder="Amount Requested">
                                 <!-- adding tool tip -->
                                 <span class="form-group-text">
                                     <span class="tt" data-bs-placement="right" title="Loan Amount Requested as filled out by the borrower in the application.">
@@ -156,7 +157,7 @@
 
                             <div>
                                 <label class="modelparam_headers" for="inputName">Debt to Income Ratio:</label>
-                                <input type="text" class="form" id="inputIncome" name="dti_ratio" placeholder="Debt to Income Ratio">
+                                <input type="number" min="0" max="100" style="width: 200px" class="form" id="inputIncome" name="dti_ratio" placeholder="Debt to Income Ratio">
                                 <span class="form-group-text">
                                     <span class="tt" data-bs-placement="right" title="A ratio calculated using the borrower’s total monthly debt payments on the total debt obligations, excluding 
                                         mortgage and the requested LC loan, divided by the borrower’s self-reported monthly income.">
@@ -292,7 +293,7 @@
                         
                             <div>
                                 <label class="modelparam_headers" for="inputName">Recoveries:</label>
-                                <input type="text" class="form" id="inputIncome" name="recoveries" placeholder="Recoveries">
+                                <input type="number" min="0" max="40000" style="width: 130px" class="form" id="inputIncome" name="recoveries" placeholder="Recoveries">
                                 <span class="form-group-text">
                                     <span class="tt" data-bs-placement="right" title="Post charge off gross recovery ($ amount)"> <i class="bi bi-question-circle"></i>
                                     </span>
@@ -303,7 +304,7 @@
 
                             <div>
                                 <label class="modelparam_headers" for="inputName">Total Late Fees Received:</label>
-                                <input type="text" class="form" id="inputIncome" name="total_rec_late_fee" placeholder="Total Late Fees Received">
+                                <input type="number" min="0" max="40000" style="width: 220px" class="form" id="inputIncome" name="total_rec_late_fee" placeholder="Total Late Fees Received">
                                 <span class="form-group-text">
                                     <span class="tt" data-bs-placement="right" title="Late Fees Received to Date"> <i class="bi bi-question-circle"></i>
                                     </span>
@@ -314,7 +315,7 @@
 
                             <div>
                                 <label class="modelparam_headers" for="inputName">Total Principal Recieved:</label>
-                                <input type="text" class="form" id="inputIncome" name="total_rec_prncp" placeholder="Total Principal Recieved">
+                                <input type="number" min="0" max="40000" style="width: 220px" class="form" id="inputIncome" name="total_rec_prncp" placeholder="Total Principal Recieved">
                                 <span class="form-group-text">
                                     <span class="tt" data-bs-placement="right" title="Principal amount received to date."> <i class="bi bi-question-circle"></i>
                                     </span>
@@ -325,7 +326,7 @@
                             
                             <div>
                                 <label class="modelparam_headers" for="inputName">Total Late Payments Last 2 Years:</label>
-                                <input type="text" class="form" id="inputIncome" name="delinq_2yrs" placeholder="Total Late Payments">
+                                <input type="number" min="0" max="40000" style="width: 200px" class="form" id="inputIncome" name="delinq_2yrs" placeholder="Total Late Payments">
                                 <span class="form-group-text">
                                     <span class="tt" data-bs-placement="right" title="The number of 30+ days past-due incidences of delinquency in the borrower’s credit file for the past 2 years."> <i class="bi bi-question-circle"></i>
                                     </span>
@@ -366,7 +367,7 @@
 
                             <div>
                                 <label class="modelparam_headers" for="inputName">FICO Score:</label>
-                                <input type="text" class="form" id="inputIncome" name="fico_range_high" placeholder="Score">
+                                <input type="number" min="0" max="40000" style="width: 120px" class="form" id="inputIncome" name="fico_range_high" placeholder="Score">
                                 <span class="form-group-text">
                                     <span class="tt" data-bs-placement="right" title="The borrower’s most recent Credit Score pulled."> <i class="bi bi-question-circle"></i>
                                     </span>
@@ -388,7 +389,7 @@
                             
                             <div>
                                 <label class="modelparam_headers" for="inputName">Payment Total:</label>
-                                <input type="text" class="form" id="inputIncome" name="total_pymnt" placeholder="Total">
+                                <input type="number" min="0" max="40000" style="width: 120px" class="form" id="inputIncome" name="total_pymnt" placeholder="Total">
                                 <span class="form-group-text">
                                     <span class="tt" data-bs-placement="right" title="Payments received to date for the total amount funded."> <i class="bi bi-question-circle"></i>
                                     </span>
@@ -426,15 +427,8 @@
                 <p>Obviously, this is a mock organization for now. We need to explore options for plotting in Tableau</p>
                 <hr class="divider" />
                 <div class="row" style="column-gap: 60px">
-                    <div class="col-lg-5 col-md-6 text-center" style="background-color: white;" >
-                        <div class="mt-5">
-                            <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Viz 1</h3>
-                            <p class="text-muted mb-0">insert HTML code snippet that Tableau generates for us :)</p>
-                        </div>
-                    </div>
                     <br>
-                    <div class="col-lg-5 col-md-6 text-center" style="background-color: white;">
+                    <div class="col-lg-12 col-md- text-center" style="background-color: white;">
                         <div class="mt-5">
                             <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
                             <h3 class="h4 mb-2">Viz 2</h3>
@@ -445,19 +439,10 @@
                 <br>
                 <br>
                 <div class="row" style="column-gap: 60px">
-                    <div class="col-lg-5 col-md-6 text-center" style="background-color: white;" >
-                        <div class="mt-5">
-                            <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Viz 1</h3>
-                            <p class="text-muted mb-0">insert HTML code snippet that Tableau generates for us :)</p>
-                        </div>
-                    </div>
                     <br>
-                    <div class="col-lg-5 col-md-6 text-center" style="background-color: white;">
+                    <div class="col-lg-12 col-md-6 text-center" style="background-color: white;">
                         <div class="mt-5">
-                            <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Viz 2</h3>
-                            <p class="text-muted mb-0">insert HTML code snippet that Tableau generates for us :)</p>
+                            <div class='tableauPlaceholder' id='viz1662000346511' style='position: relative'><noscript><a href='#'><img alt='Lending Club Story ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pr&#47;Project4_LendingClub&#47;LendingClubStory&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Project4_LendingClub&#47;LendingClubStory' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pr&#47;Project4_LendingClub&#47;LendingClubStory&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1662000346511');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
 
                         </div>
                     </div>
