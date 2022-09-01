@@ -66,9 +66,10 @@
 
 #accept_reject{
   max-width: 100%;
-  margin-top: 30%;
+  margin-bottom: 5%;
 
 }
+
 
 .name {
   font-weight: bolder;
@@ -3120,8 +3121,24 @@ textarea.form-control-lg {
   }
 }
 .btn:hover {
-  color: #212529;
+background-color: #FFFFFF !important;
+    
 }
+
+.button_format {
+transition: all 0.5s;
+background-color: purple;
+color: white;
+
+}
+
+.button_format:hover {
+  background-color: white;
+  
+}
+  
+
+
 .btn-check:focus + .btn, .btn:focus {
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(244, 98, 58, 0.25);

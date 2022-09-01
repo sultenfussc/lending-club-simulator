@@ -35,8 +35,8 @@
                                 Predict!
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#payment_time">Fully paid or charged off?</a></li>
-                                <li><a class="dropdown-item" href="#application">Application approved or rejected?</a></li>
+                                <li><a class="dropdown-item" href="#application">Application Approved or Rejected?</a></li>
+                                <li><a class="dropdown-item" href="#payment_status">Charged off or Fully Paid?</a></li>
                             </ul>
                             </li>
                         <li class="nav-item"><a class="nav-link" href="#meet_the_team">The Team</a></li>
@@ -46,7 +46,7 @@
         </nav>
         <!-- Masthead-->
         <header class="masthead" id="mastheadpic">
-            <h1 class="title_home">Lending Club Loan Exploration</h1>
+            <h1 class="title_home">Lending Club Loan Simulator</h1>
         </header>
         <!-- About Section -->
         <section class="page-section" id="about" style="background-color: rgb(189, 239, 239) ;">
@@ -66,33 +66,34 @@
                     <div class="col-4">
                         <h3 class="about_subheader">Where was the data obtained?</h3>
                         <hr class="divider divider-light"/>
-                        <pr> The data used in th
-
-                        </pr>
+                        <p> The data used in this model was found at  
+                            <a href="https://www.kaggle.com/datasets/wordsforthewise/lending-club" target="_blank" style="font-weight: bolder" >Kaggle</a>
+                            which lists data that was previously publicly available from
+                            <a href="https://www.lendingclub.com/" target="_blank" style="font-weight: bolder" >Lending Club</a>.
+                            Lending Club operated as a liaison between private citizens as both lenders and borrowers, so that individuals
+                            could lend money and potentially profit from private borrowers. Lending Club has since changed their business model away from this type of loan,
+                            but because the current data is no longer public, the model is limited to data found between 2007 through 2018.</p>
+                        
                         
                     </div>
                     <div class="col-4">
-                        <h3 class="about_subheader">Why was this projected conducted?</h3>
+                        <h3 class="about_subheader">Why was this project conducted?</h3>
                         <hr class="divider divider-light"/>
                         <p>The purpose of this analysis was to determine whether previous applications who applied for a loan through the 
-                            Lending Club Personal Loan could predict whether a propsepctive application would be approved or denied based on refined features.
-
+                            Lending Club Personal Loan could predict whether a prospective application would be approved or rejected based on refined features.
                         </p>
                         
                     </div>
 
+
                 </div>
-                <h3>Purpose:</h3>
+                <br><br>
+                <h3>Application of Machine Learning Algorithms</h3>
                 <p>
-                The purpose of this analysis was to determine whether previous applicants who applied
-                for a loan through a Lending Club Personal Loan could predict whether a prospective 
-                applicant would be approved or denied based on refined features. Additionally, numerous 
-                loans are not paid off on time. Therefore, data obtained from the Lending Club Personal 
-                Loan database was also used to help predict whether a prospective loan applicant would pay 
-                off their loan either late or on-time.
+                
                 </p>
                 <p>
-                A Machine Learning Model that focused on the features: Amount Requested, Loan Title, Debt-To-Income Ratio, 
+                Our Machine Learning Models focused on the features: Amount Requested, Loan Title, Debt-To-Income Ratio, 
                 State applicant resides in, and Employment Length, was utilized to determine whether an applicant would be 
                 initially approved or denied included. Furthermore, features were refined to: Recoveries, Total Late Fees Received, 
                 Total Principal Received, Total Late Payments Over the Last 2 years, FICO Score, Loan Status, and Payment Total to
@@ -105,14 +106,14 @@
         </section>
 
         <!-- END-USER MODEL 1-->
-        <div class="page-section" id="payment_time" style="background-color: rgb(189, 239, 239) ;">
+        <div class="page-section" id="application" style="background-color: rgb(189, 239, 239) ;">
             <h3 class="model_headers">Will your loan application be accepted or rejected?</h3>
             <hr class="divider divider-light"/>
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6 text-center">
                         <!-- <img id="acceptreject_pic"src="{{url_for ('static',filename='assets/img/accept-reject.jpg')}}" -->
-                        <img id="accept_reject" src="static/assets/img/accept-reject.jpg">
+                        <img id="accept_reject" src="static/assets/img/accept-reject.png">
                     </div>
                     <div class="col-lg-6 text-center">
                         <h2 class="command_user">Fill out the form below and click the button to find out!</h2>
@@ -132,8 +133,8 @@
                             <br>
                             <div>
                                 <label class="modelparam_headers" for="loan_title">Loan Title:</label>
-                                <select name="loan_title" id="loan_title" placeholder="Loan Title">
-                                <option value="Select">- Select -</option>
+                                <select  required name="loan_title" id="loan_title" placeholder="Loan Title">
+                                <option value="">- Select -</option>
                                 <option value="DEBT_CONSOLIDATION">Debt Consolidation</option>
                                 <option value="CC">Credit Card</option>
                                 <option value="IMPROVEMENT">Improvement</option>
@@ -147,7 +148,7 @@
                                 <option value="vacation">Vacation</option>
                                 </select>
                                 <span class="form-group-text">
-                                        <span class="tt" data-bs-placement="right" title="What is the purpose of the loan that is being applied for?">
+                                        <span class="tt" data-bs-placement="right" title="Purpose of the loan that is being applied for?">
                                             <i class="bi bi-question-circle"></i>
                                         </span>
                                 </span>  
@@ -170,8 +171,8 @@
                                 <br>
 
                                 <label class="modelparam_headers" for="state">State:</label>
-                                <select name="state" id="state" placeholder="State">
-                                <option value="Select">- Select -</option>
+                                <select required name="state" id="state" placeholder="State">
+                                <option value="">- Select -</option>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
                                 <option value="AZ">Arizona</option>
@@ -229,13 +230,11 @@
                                 </span>  
                         
                             </div>
-                            <br><br> 
-
-
+                            <br>
                             <div>
                                 <label class="modelparam_headers" for="emp_length">Employment Length (Years):</label>
-                                <select name="emp_length" id="emp_length">
-                                <option value="Select">- Select -</option>
+                                <select required name="emp_length" id="emp_length">
+                                <option value="">- Select -</option>
                                 <option value=0.5>less than 1</option>
                                 <option value=1>1</option>
                                 <option value=2>2</option>
@@ -277,8 +276,8 @@
         </div>
 
         <!-- END-USER MODEL 2-->
-        <div class="page-section" id="application" style="background-color: rgb(189, 239, 239) ;">
-            <h3 class="model_headers">Will you have your loan charged off or fully paid off?</h3>
+        <div class="page-section" id="payment_status" style="background-color: rgb(189, 239, 239) ;">
+            <h3 class="model_headers">Will your loan be charged off or be fully paid?</h3>
             <hr class="divider divider-light"/>
             <br>
             <div class="container">
@@ -422,23 +421,10 @@
         <!-- Tableau Stuff-->
         <section class="page-section" id="tableau" style="background-color: rgb(189, 239, 239) ;">
             <div class="container px-4 px-lg-5">
-                <h2 class="text-center mt-0">Visualizations Section- This is where Tableau visualizations will go?
-                </h2>
-                <p>Obviously, this is a mock organization for now. We need to explore options for plotting in Tableau</p>
-                <hr class="divider" />
-                <div class="row" style="column-gap: 60px">
-                    <br>
-                    <div class="col-lg-12 col-md- text-center" style="background-color: white;">
-                        <div class="mt-5">
-                            <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Viz 2</h3>
-                            <p class="text-muted mb-0">insert HTML code snippet that Tableau generates for us :)</p>
-                        </div>
-                    </div>
-                </div>
+                <h2 class="text-center mt-0">Interactive Visualizations</h2>
+                <hr class="divider"/>
                 <br>
-                <br>
-                <div class="row" style="column-gap: 60px">
+                <div class="row">
                     <br>
                     <div class="col-lg-12 col-md-6 text-center" style="background-color: white;">
                         <div class="mt-5">
@@ -561,7 +547,7 @@
                 </div>
             </div>     
         </div>
-        <!-- Bootstrap core JS-->
+        <!-- FF core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- SimpleLightbox plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
