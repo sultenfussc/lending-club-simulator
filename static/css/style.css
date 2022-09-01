@@ -65,7 +65,8 @@
 }
 
 #accept_reject{
-  max-width: 20px;
+  max-width: 100%;
+  margin-top: 30%;
 
 }
 
