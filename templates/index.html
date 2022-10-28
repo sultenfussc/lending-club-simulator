@@ -29,7 +29,6 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#about">About </a></li>
-                        <li class="nav-item"><a class="nav-link" href="#tableau">Visualizations </a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Predict!
@@ -39,6 +38,7 @@
                                 <li><a class="dropdown-item" href="#payment_status">Charged off or Fully Paid?</a></li>
                             </ul>
                             </li>
+                        <li class="nav-item"><a class="nav-link" href="#tableau">Visualizations </a></li>
                         <li class="nav-item"><a class="nav-link" href="#meet_the_team">The Team</a></li>
                     </ul>
                 </div>
@@ -93,11 +93,13 @@
                 
                 </p>
                 <p>
-                Our Machine Learning Models focused on the features: Amount Requested, Loan Title, Debt-To-Income Ratio, 
-                State applicant resides in, and Employment Length, was utilized to determine whether an applicant would be 
-                initially approved or denied included. Furthermore, features were refined to: Recoveries, Total Late Fees Received, 
-                Total Principal Received, Total Late Payments Over the Last 2 years, FICO Score, Loan Status, and Payment Total to
-                predict if a prospective loan applicant would pay their loan on-time or would be late with their payement.
+                Prediction of accepted and rejected loans and prediction of fully paid and charged-off loans. The use case would be to store predictions from the accepted and rejected loans, in a database. After a few months of prediction collections, the information inputted into the fields would be transmitted to the fully paid and charged-off loans model. The collection of these predictions has the potential to give valuable insights to more accurately screen for loan-worthy customers.
+
+
+
+
+
+
                 </p>
             </div>
             <br>
@@ -118,10 +120,10 @@
                     <div class="col-lg-6 text-center">
                         <h2 class="command_user">Fill out the form below and click the button to find out!</h2>
                        <br><br>
-                        <form method="POST" class="modelformat" action="/acceptance_model" role="form", name="loan_acceptance">
+                        <form method="POST" class="modelformat"  action="/acceptance_model#application" role="form", name="loan_acceptance">
                             <div>
                                 <label class="modelparam_headers" for="inputName">Amount Requested:</label>
-                                <input type="number" min="1000"  style="width: 180px" class="form" id="inputIncome" name="amount_requested" placeholder="Amount Requested">
+                                <input required type="number" min="1000"  style="width: 180px" class="form" id="inputIncome" name="amount_requested" placeholder="Amount Requested">
                                 <!-- adding tool tip -->
                                 <span class="form-group-text">
                                     <span class="tt" data-bs-placement="right" title="Loan Amount Requested as filled out by the borrower in the application.">
@@ -148,7 +150,7 @@
                                 <option value="vacation">Vacation</option>
                                 </select>
                                 <span class="form-group-text">
-                                        <span class="tt" data-bs-placement="right" title="Purpose of the loan that is being applied for?">
+                                        <span class="tt" data-bs-placement="right" title="Purpose of the loan that is being applied for.">
                                             <i class="bi bi-question-circle"></i>
                                         </span>
                                 </span>  
@@ -158,7 +160,7 @@
 
                             <div>
                                 <label class="modelparam_headers" for="inputName">Debt to Income Ratio:</label>
-                                <input type="number" min="0" max="100" style="width: 200px" class="form" id="inputIncome" name="dti_ratio" placeholder="Debt to Income Ratio">
+                                <input required type="number" min="0" max="100" style="width: 200px" class="form" id="inputIncome" name="dti_ratio" placeholder="Debt to Income Ratio">
                                 <span class="form-group-text">
                                     <span class="tt" data-bs-placement="right" title="A ratio calculated using the borrower’s total monthly debt payments on the total debt obligations, excluding 
                                         mortgage and the requested LC loan, divided by the borrower’s self-reported monthly income.">
@@ -224,7 +226,7 @@
                                 <option value="WY">Wyoming</option>
                                 </select> 
                                 <span class="form-group-text">
-                                    <span class="tt" data-bs-placement="right" title="State or District prospective applicant currently resides in">
+                                    <span class="tt" data-bs-placement="right" title="State or District prospective applicant currently resides in.">
                                         <i class="bi bi-question-circle"></i>
                                     </span>
                                 </span>  
@@ -262,7 +264,7 @@
                             <button type="submit" class="btn btn-primary">Generate Result!</button>
                             <br>
                         </form>
-                        <br><br>
+                        <br>
                         <h4> {% if prediction1 %} 
                             <div class="prediction">
                               Your loan application has been: {{prediction1}}
@@ -286,15 +288,15 @@
                         <img id="timepic" src="{{url_for ('static',filename='assets/img/timeticking.jpg')}}">
                     </div>
                     <div class="col-lg-6 text-center">
-                        <h2 class="command_user">Fill out the form below and click submit to find out!</h2>
+                        <h2 id="model2_answer" class="command_user">Fill out the form below and click submit to find out!</h2>
                         <br>
-                        <form method="POST" class="modelformat" action="/time_model" role="form", name="paymenttime">
+                        <form method="POST" class="modelformat" action="/time_model#model2_answer" role="form", name="paymenttime">
                         
                             <div>
                                 <label class="modelparam_headers" for="inputName">Recoveries:</label>
-                                <input type="number" min="0" max="40000" style="width: 130px" class="form" id="inputIncome" name="recoveries" placeholder="Recoveries">
+                                <input required type="number" min="0" max="39859" style="width: 130px" class="form" id="inputIncome" name="recoveries" placeholder="Recoveries">
                                 <span class="form-group-text">
-                                    <span class="tt" data-bs-placement="right" title="Debt recovered by a third-party organization in accordance with your loan"> <i class="bi bi-question-circle"></i>
+                                    <span class="tt" data-bs-placement="right" title="Debt ($) recovered by a third-party organization in accordance with your loan."> <i class="bi bi-question-circle"></i>
                                     </span>
                                 </span>
                             </div>
@@ -302,10 +304,10 @@
                             <br>
 
                             <div>
-                                <label class="modelparam_headers" for="inputName">Total Late Fees Received:</label>
-                                <input type="number" min="0" max="40000" style="width: 220px" class="form" id="inputIncome" name="total_rec_late_fee" placeholder="Total Late Fees Received">
+                                <label class="modelparam_headers" for="inputName">Total of Late Fees Received:</label>
+                                <input required type="number" min="0" max="724" style="width: 220px" class="form" id="inputIncome" name="total_rec_late_fee" placeholder="Total Late Fees Received">
                                 <span class="form-group-text">
-                                    <span class="tt" data-bs-placement="right" title="Late Fees Received to Date in accordance with your loan"> <i class="bi bi-question-circle"></i>
+                                    <span class="tt" data-bs-placement="right" title="Total Late Fees Received ($) to Date in accordance with your loan."> <i class="bi bi-question-circle"></i>
                                     </span>
                                 </span>
                             </div>
@@ -313,8 +315,8 @@
                             <br>
 
                             <div>
-                                <label class="modelparam_headers" for="inputName">Total Principal Recieved:</label>
-                                <input type="number" min="0" max="40000" style="width: 220px" class="form" id="inputIncome" name="total_rec_prncp" placeholder="Total Principal Recieved">
+                                <label class="modelparam_headers" for="inputName">Total Principal Amount Received:</label>
+                                <input required type="number" min="0" max="40000" style="width: 220px" class="form" id="inputIncome" name="total_rec_prncp" placeholder="Total Principal Received">
                                 <span class="form-group-text">
                                     <span class="tt" data-bs-placement="right" title="Principal amount received to date."> <i class="bi bi-question-circle"></i>
                                     </span>
@@ -325,7 +327,7 @@
                             
                             <div>
                                 <label class="modelparam_headers" for="inputName">Total Late Payments Last 2 Years:</label>
-                                <input type="number" min="0" max="40000" style="width: 200px" class="form" id="inputIncome" name="delinq_2yrs" placeholder="Total Late Payments">
+                                <input required type="number" min="0" max="19" style="width: 200px" class="form" id="inputIncome" name="delinq_2yrs" placeholder="Total Late Payments">
                                 <span class="form-group-text">
                                     <span class="tt" data-bs-placement="right" title="The number of 30+ days past-due incidences of delinquency in the borrower’s credit file for the past 2 years."> <i class="bi bi-question-circle"></i>
                                     </span>
@@ -366,7 +368,7 @@
 
                             <div>
                                 <label class="modelparam_headers" for="inputName">FICO Score:</label>
-                                <input type="number" min="0" max="40000" style="width: 120px" class="form" id="inputIncome" name="fico_range_high" placeholder="Score">
+                                <input required type="number" min="0" max="850" style="width: 120px" class="form" id="inputIncome" name="fico_range_high" placeholder="Score">
                                 <span class="form-group-text">
                                     <span class="tt" data-bs-placement="right" title="The borrower’s most recent Credit Score pulled."> <i class="bi bi-question-circle"></i>
                                     </span>
@@ -388,7 +390,7 @@
                             
                             <div>
                                 <label class="modelparam_headers" for="inputName">Payment Total:</label>
-                                <input type="number" min="0" max="40000" style="width: 120px" class="form" id="inputIncome" name="total_pymnt" placeholder="Total">
+                                <input required type="number" min="0" max="62687" style="width: 120px" class="form" id="inputIncome" name="total_pymnt" placeholder="Total">
                                 <span class="form-group-text">
                                     <span class="tt" data-bs-placement="right" title="Payments received to date for the total amount funded."> <i class="bi bi-question-circle"></i>
                                     </span>
@@ -404,7 +406,7 @@
                             <button type="submit" class="btn btn-primary">Generate Result</button>
                             <br><br>
                         </form>
-                        <br><br>
+                        <br>
                         <h4> {% if prediction %} 
                             <div class="prediction">
                                 Predicted status of your loan: {{prediction}}
